@@ -253,118 +253,43 @@
 </head>
 <body class="antialiased">
 
-<!-- Sticky Header -->
-<header class="fixed top-0 w-full z-50 glass border-b border-white/5 netflix-header" id="mainHeader">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center h-16 sm:h-20">
-            <div class="flex items-center gap-2">
-                <i class="fas fa-gamepad text-2xl sm:text-3xl gradient-text"></i>
-                <span class="text-xl sm:text-2xl font-gamer font-bold gradient-text">Gameflix</span>
-            </div>
-            <nav class="hidden md:flex items-center gap-8">
-                <a href="#ofertas" class="text-sm font-semibold hover:text-[#E50914] transition-colors">Ofertas</a>
-                <a href="#beneficios" class="text-sm font-semibold hover:text-[#E50914] transition-colors">Benefícios</a>
-                <a href="#faq" class="text-sm font-semibold hover:text-[#E50914] transition-colors">FAQ</a>
-            </nav>
-            <div class="flex items-center gap-3">
-                <a href="#oferta-destaque" class="btn-neon px-4 sm:px-6 py-2 sm:py-2.5 rounded-lg text-sm sm:text-base hidden sm:inline-flex">
-                    COMPRAR AGORA
-                </a>
-                <button id="menuToggle" class="md:hidden text-2xl text-white">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
-        </div>
-    </div>
-</header>
-
-<!-- Menu Mobile -->
-<div class="mobile-overlay" id="mobileOverlay"></div>
-<div class="mobile-menu" id="mobileMenu">
-    <button id="menuClose" class="absolute top-6 right-6 text-2xl">
-        <i class="fas fa-times"></i>
-    </button>
-    <nav class="flex flex-col gap-6">
-        <a href="#ofertas" class="text-lg font-semibold hover:text-[#E50914] transition-colors mobile-link">Ofertas</a>
-        <a href="#beneficios" class="text-lg font-semibold hover:text-[#E50914] transition-colors mobile-link">Benefícios</a>
-        <a href="#faq" class="text-lg font-semibold hover:text-[#E50914] transition-colors mobile-link">FAQ</a>
-        <a href="#oferta-destaque" class="btn-neon px-6 py-3 rounded-lg text-base mt-4 mobile-link">
-            COMPRAR AGORA
-        </a>
-    </nav>
-</div>
-
-<!-- Hero Section -->
-<section class="relative min-h-screen flex items-center justify-center pt-20 grid-bg">
-
-
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-        <div class="inline-block mb-6 px-4 py-2 rounded-full glass border border-[#E50914]/30 fade-in">
-            <span class="text-sm font-bold text-[#E50914]"><i class="fas fa-bolt mr-2"></i>+5.000 GAMERS JÁ ECONOMIZARAM</span>
-        </div>
-
-        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight fade-in">
-            PARE DE PAGAR<br>
-            <span class="gradient-text">R$299 EM JOGOS NA STEAM</span>
-        </h1>
-
-        
-<!-- VSL Section -->
-<section class="py-16 sm:py-24 relative">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12 fade-in">
-                <div class="gradient-border rounded-2xl p-1 mb-8 fade-in">
-         <div class="bg-black rounded-2xl aspect-video flex items-center justify-center relative overflow-hidden group">
-    <div class="absolute inset-0 z-20 cursor-default"></div>
-
-    <iframe 
-        id="vsl-video"
-        class="w-full h-full relative z-10 pointer-events-none" 
-        src="https://www.youtube.com/embed/oPQSL7rjDz8?controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&disablekb=1" 
-        title="Gameflix Video" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen>
-    </iframe>
-
-    <button id="play-button" class="absolute z-30 w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gradient-to-r from-[#E50914] to-[#f40612] flex items-center justify-center animate-pulse-glow hover:scale-110 transition-transform shadow-[0_0_50px_rgba(229,9,20,0.6)]">
-        <i class="fas fa-play text-3xl sm:text-4xl text-white ml-1"></i>
-    </button>
-</div>
-        </div>
-    </div>
 
 <!-- Featured Offer -->
 <section id="oferta-destaque" class="py-16 sm:py-24 relative">
+     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+       
     <div class="absolute inset-0 bg-gradient-to-b from-[#E50914]/5 to-transparent"></div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div class="text-center mb-8 fade-in">
             <div class="inline-block px-4 py-2 rounded-full bg-red-500/20 border border-red-500/50 mb-4">
                 <span class="text-sm font-bold text-red-400 animate-pulse"><i class="fas fa-fire mr-2"></i>OFERTA RELÂMPAGO</span>
             </div>
-           
+           <div class="inline-block mb-6 px-4 py-2 rounded-full glass border border-[#E50914]/30 fade-in">
+            <span class="text-sm font-bold text-[#E50914]"><i class="fas fa-bolt mr-2"></i>+5.000 GAMERS JÁ ECONOMIZARAM</span>
+        </div>
         </div>
 
         <div class="gradient-border rounded-3xl p-1 max-w-5xl mx-auto fade-in">
             <div class="bg-gradient-to-br from-gray-900 to-black rounded-3xl overflow-hidden">
                 <div class="grid md:grid-cols-2 gap-8 p-6 sm:p-10">
                     <div class="relative">
+                        
                         <div class="absolute -top-4 -left-4 bg-red-500 text-white px-4 py-1 rounded-lg font-black text-sm z-10 rotate-[-3deg]">
                             84% OFF
                         </div>
                         <img src="https://cdn.loaded.com/496x700/media/catalog/product/r/e/resident_evil_requiem_cdkeys_1.png" alt="Resident Evil Requiem" class="w-full h-full object-cover rounded-2xl">
                    <div class="absolute bottom-4 left-4 glass px-3 py-1 rounded-lg">
-                            <span class="text-xs font-bold"><i class="fas fa-desktop mr-1"></i>PC STEAM</span>
+                            <span class="text-xs font-bold"><i class="fas fa-desktop mr-1"></i>PC GAMEFLIX</span>
                         </div>
                     </div>
 
                     <div class="flex flex-col justify-center">
                         <h3 class="font-gamer font-black text-2xl sm:text-3xl md:text-4xl mb-2">RESIDENT EVIL REQUIEM</h3>
-                        <p class="text-[#E50914] font-bold text-lg mb-6">DELUXE EDITION - PC STEAM</p>
+                        <p class="text-[#E50914] font-bold text-lg mb-6">DELUXE EDITION - PC GAMEFLIX</p>
 
                         <div class="flex items-baseline gap-3 mb-6">
-                            <span class="text-gray-500 text-xl line-through">R$249,99</span>
-                            <span class="text-4xl sm:text-5xl font-black text-[#E50914]">R$39,90</span>
+                            <span class="text-gray-500 text-xl line-through">R$249,90</span>
+                            <span class="text-4xl sm:text-5xl font-black text-[#E50914]">R$49,90</span>
                         </div>
 
                         <div class="space-y-3 mb-6">
@@ -398,7 +323,7 @@
                                 </div>
                                 <div class="text-right">
                                     <p class="text-xs text-gray-400">Economize</p>
-                                    <p class="font-black text-xl text-[#E50914]">R$210,09</p>
+                                    <p class="font-black text-xl text-[#E50914]">R$200,00</p>
                                 </div>
                             </div>
                         </div>
@@ -409,76 +334,17 @@
 
                         <div class="flex items-center justify-center gap-4 text-xs text-gray-400">
                             <span><i class="fas fa-lock mr-1"></i>Pagamento seguro</span>
-                            <span><i class="fas fa-undo mr-1"></i>7 dias garantia</span>
-                        </div>
+                            <span><i class="fas fa-undo mr-1"></i>Acesso via Link Direto</span>
+                           
+                        </div> 
+                        
                     </div>
-                </div>
+                </div> 
             </div>
         </div>
     </div>
 
 
-<!-- Comparison Table -->
-<section class="py-16 sm:py-24">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12 fade-in">
-            <h2 class="text-3xl sm:text-4xl md:text-5xl font-black mb-4">
-                COMPARAÇÃO <span class="gradient-text">SEM MENTIRA</span>
-            </h2>
-            <p class="text-gray-400 text-lg">Veja por que a Gameflix é a escolha inteligente</p>
-        </div>
-        
-        <div class="gradient-border rounded-2xl overflow-hidden fade-in">
-            <div class="overflow-x-auto">
-                <table class="w-full">
-                    <thead>
-                        <tr class="bg-gradient-to-r from-gray-900 to-black">
-                            <th class="p-4 sm:p-6 text-left font-gamer font-bold text-lg">CARACTERÍSTICA</th>
-                            <th class="p-4 sm:p-6 text-center font-gamer font-bold text-lg text-gray-400">
-                                <i class="fab fa-steam mr-2"></i>Na Steam / PS Store
-                            </th>
-                            <th class="p-4 sm:p-6 text-center font-gamer font-bold text-lg gradient-text">
-                                <i class="fas fa-gamepad mr-2"></i>Na Gameflix
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody class="text-sm sm:text-base">
-                        <tr class="border-t border-white/5">
-                            <td class="p-4 sm:p-6 font-semibold">Preço Médio Lançamento</td>
-                            <td class="p-4 sm:p-6 text-center text-red-400">R$249 - R$349</td>
-                            <td class="p-4 sm:p-6 text-center text-[#00ff88] font-bold">R$39 - R$59 <i class="fas fa-check ml-2"></i></td>
-                        </tr>
-                        <tr class="border-t border-white/5 bg-white/2">
-                            <td class="p-4 sm:p-6 font-semibold">Originalidade</td>
-                            <td class="p-4 sm:p-6 text-center">100% Original</td>
-                            <td class="p-4 sm:p-6 text-center text-[#00ff88] font-bold">100% Original <i class="fas fa-check ml-2"></i></td>
-                        </tr>
-                        <tr class="border-t border-white/5">
-                            <td class="p-4 sm:p-6 font-semibold">Risco de Ban</td>
-                            <td class="p-4 sm:p-6 text-center">Zero</td>
-                            <td class="p-4 sm:p-6 text-center text-[#00ff88] font-bold">Zero <i class="fas fa-check ml-2"></i></td>
-                        </tr>
-                        <tr class="border-t border-white/5 bg-white/2">
-                            <td class="p-4 sm:p-6 font-semibold">Entrega</td>
-                            <td class="p-4 sm:p-6 text-center">Instantânea</td>
-                            <td class="p-4 sm:p-6 text-center text-[#00ff88] font-bold">Instantânea <i class="fas fa-check ml-2"></i></td>
-                        </tr>
-                        <tr class="border-t border-white/5">
-                            <td class="p-4 sm:p-6 font-semibold">Suporte Humano</td>
-                            <td class="p-4 sm:p-6 text-center text-gray-400">Bot / Ticket Lento</td>
-                            <td class="p-4 sm:p-6 text-center text-[#00ff88] font-bold">WhatsApp Direto <i class="fas fa-check ml-2"></i></td>
-                        </tr>
-                        <tr class="border-t border-white/5 bg-white/2">
-                            <td class="p-4 sm:p-6 font-semibold">Economia no Bolso</td>
-                            <td class="p-4 sm:p-6 text-center text-red-400">R$0</td>
-                            <td class="p-4 sm:p-6 text-center text-[#00ff88] font-bold">Até R$300 por jogo <i class="fas fa-check ml-2"></i></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</section>
 
 <!-- FAQ Section -->
 <section id="faq" class="py-16 sm:py-24">
@@ -493,36 +359,36 @@
         <div class="space-y-4">
             <div class="faq-item gradient-border rounded-2xl overflow-hidden fade-in">
                 <button class="faq-toggle w-full p-6 flex items-center justify-between text-left hover:bg-white/5 transition-colors">
-                    <span class="font-bold text-lg pr-4"><i class="fas fa-shield-alt text-[#00ff88] mr-3"></i>É seguro? Não vou tomar ban na Steam?</span>
+                    <span class="font-bold text-lg pr-4"><i class="fas fa-shield-alt text-[#00ff88] mr-3"></i>1. Como receber meu jogo após a compra?</span>
                     <i class="fas fa-chevron-down text-[#00ff88] transition-transform"></i>
                 </button>
                 <div class="faq-content px-6">
                     <div class="pb-6 text-gray-300">
-                        <p>Totalmente seguro! Trabalhamos apenas com chaves RETAIL originais compradas direto de distribuidores oficiais. São as mesmas chaves vendidas nas lojas físicas. A Steam não consegue diferenciar uma chave nossa de uma comprada diretamente lá. Você ativa na SUA conta, o jogo fica vinculado pra sempre. Zero risco de ban. Já são +5.000 entregas sem nenhum caso de banimento.</p>
+                        <p>A entrega é 100% digital e automática. Assim que o pagamento for confirmado, você receberá um e-mail com o link de acesso exclusivo e o passo a passo detalhado para baixar e instalar o jogo na plataforma GAMEFLIX.</p>
                     </div>
                 </div>
             </div>
             
             <div class="faq-item gradient-border rounded-2xl overflow-hidden fade-in">
                 <button class="faq-toggle w-full p-6 flex items-center justify-between text-left hover:bg-white/5 transition-colors">
-                    <span class="font-bold text-lg pr-4"><i class="fas fa-clock text-[#00ff88] mr-3"></i>Quanto tempo demora pra receber a chave?</span>
+                    <span class="font-bold text-lg pr-4"><i class="fas fa-clock text-[#00ff88] mr-3"></i>O jogo é meu para sempre ou tem prazo de validade?</span>
                     <i class="fas fa-chevron-down text-[#00ff88] transition-transform"></i>
                 </button>
                 <div class="faq-content px-6">
                     <div class="pb-6 text-gray-300">
-                        <p>Garantimos entrega em até 24 horas após confirmação do pagamento. Na prática, 95% dos pedidos são entregues em menos de 1 hora. Pix e cartão aprovado = chave no seu e-mail rapidão. Boleto demora o tempo de compensação bancária (até 3 dias úteis), mas assim que compensar, você recebe na hora.</p>
+                        <p>O acesso é vitalício. Uma vez adquirido, o jogo é seu. Você pode desinstalar e instalar novamente sempre que quiser, garantindo que sua biblioteca pessoal esteja sempre disponível para quando você decidir jogar.</p>
                     </div>
                 </div>
             </div>
             
             <div class="faq-item gradient-border rounded-2xl overflow-hidden fade-in">
                 <button class="faq-toggle w-full p-6 flex items-center justify-between text-left hover:bg-white/5 transition-colors">
-                    <span class="font-bold text-lg pr-4"><i class="fas fa-globe text-[#00ff88] mr-3"></i>Funciona no Brasil? Tem bloqueio de região?</span>
+                    <span class="font-bold text-lg pr-4"><i class="fas fa-globe text-[#00ff88] mr-3"></i>E se eu tiver dificuldade na instalação, você pode ajudar?</span>
                     <i class="fas fa-chevron-down text-[#00ff88] transition-transform"></i>
                 </button>
                 <div class="faq-content px-6">
                     <div class="pb-6 text-gray-300">
-                        <p>Sim, funciona 100% no Brasil! Todas nossas chaves são GLOBAL ou LATAM, sem bloqueio regional. Você ativa direto na sua conta Steam brasileira sem VPN ou gambiarra. Na descrição de cada jogo deixamos claro a região da chave. Se por algum motivo raro sua conta não aceitar, trocamos a chave ou devolvemos seu dinheiro na hora.</p>
+                        <p>Com certeza! Além do tutorial em vídeo que acompanha a compra, temos um suporte humanizado via WhatsApp pronto para você orientar. Nossa taxa de resolução é de 100% — ninguém fica sem jogar por falta de suporte técnico.</p>
                     </div>
                 </div>
             </div>
@@ -564,13 +430,13 @@
                 <span class="gradient-text">PRA JOGAR</span>
             </h2>
             <p class="text-xl sm:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
-                Mais de 5.000 gamers já economizaram centenas de reais. Próximo pode ser você.
+                Quer levar esse jogo e mais um por apenas R$ 24,90 a mais? Clique no botao abaixo e aproveita!!
             </p>
             
             <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
                 <button class="btn-neon w-full sm:w-auto px-10 py-5 rounded-xl bg-gradient-to-r from-[#00ff88] to-[#00cc6a] text-black font-black text-xl glow-green">
-                    <i class="fas fa-fire mr-2"></i>VER TODAS AS OFERTAS DO DIA
-                </button>
+                    <i class="fas fa-fire mr-2"></i>QUERO APROVEITAR A OFERTA.
+           </button>
             </div>
             
             <div class="flex flex-wrap justify-center gap-6 sm:gap-8 text-sm">
@@ -595,57 +461,7 @@
     </div>
 </section>
 
-<!-- Footer -->
-<footer class="border-t border-white/10 py-12 glass">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid md:grid-cols-4 gap-8 mb-8">
-            <div>
-                <div class="flex items-center gap-2 mb-4">
-                    <i class="fas fa-gamepad text-2xl gradient-text"></i>
-                    <span class="text-xl font-gamer font-bold gradient-text"></span>
-                </div>
-               
-                <h4 class="font-gamer font-bold mb-4 text-[#00ff88]">Atendimento</h4>
-                <div class="space-y-2 text-sm text-gray-400">
-                    <a href="https://wa.me/5511945306956" class="flex items-center gap-2 hover:text-[#00ff88] transition-colors">
-                        <i class="fab fa-whatsapp"></i>
-                        <span>(11) 94530-6956</span>
-                    </a>
-                    <a href="mailto:contato@gameflix.shop" class="flex items-center gap-2 hover:text-[#00ff88] transition-colors">
-                        <i class="fas fa-envelope"></i>
-                        <span>contato@gameflix.shop</span>
-                    </a>
-                    <p class="flex items-center gap-2">
-                        <i class="fas fa-clock"></i>
-                        <span>SEG-SAB 10-18HS</span>
-                    </p>
-                </div>
-            </div>
-            
-            
-            <div>
-                <h4 class="font-gamer font-bold mb-4 text-[#00ff88]">Pagamento Seguro</h4>
-                <div class="flex flex-wrap gap-3 text-2xl text-gray-400">
-                    <i class="fab fa-pix"></i>
-                    <i class="fas fa-credit-card"></i>
-                    <i class="fab fa-cc-visa"></i>
-                    <i class="fab fa-cc-mastercard"></i>
-                </div>
-                <p class="text-xs text-gray-500 mt-4">Site protegido com SSL</p>
-            </div>
-        </div>
-        
-        <div class="border-t border-white/10 pt-8 text-center text-sm text-gray-500">
-            <p>&copy; 2024 Gameflix. Todos os direitos reservados. CNPJ: XX.XXX/0001-XX</p>
-            <p class="mt-2 text-xs">Gameflix não é afiliada à Steam, PlayStation ou Xbox. Todas as marcas são propriedade de seus respectivos donos.</p>
-        </div>
-    </div>
-</footer>
 
-<!-- WhatsApp Float Button -->
-<a href="https://wa.me/5511945306956" class="fixed bottom-6 right-6 w-14 h-14 bg-gradient-to-br from-[#25D366] to-[#128C7E] rounded-full flex items-center justify-center text-white text-3xl shadow-lg hover:scale-110 transition-transform z-50 animate-pulse-glow">
-    <i class="fab fa-whatsapp"></i>
-</a>
 
 <script>
     // Fade in on scroll animation
