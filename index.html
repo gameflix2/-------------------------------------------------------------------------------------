@@ -226,19 +226,27 @@
     }
 
    .faq-content {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease;
-    }
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0; /* Começa invisível */
+    transform: translateY(-10px); /* Leve deslocamento para cima */
+    transition: 
+        max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+        opacity 0.4s ease,
+        transform 0.4s ease;
+}
 
-   .faq-item.active.faq-content {
-        max-height: 500px;
-    }
+.faq-item.active .faq-content {
+    max-height: 500px; /* Valor alto o suficiente para o texto */
+    opacity: 1; /* Fica visível */
+    transform: translateY(0); /* Volta para a posição original */
+    padding-bottom: 1.5rem; /* Espaçamento interno extra ao abrir */
+}
 
-   .faq-item.active.fa-chevron-down {
-        transform: rotate(180deg);
-    }
-
+/* Deixa a seta com um giro mais elegante */
+.faq-item .fa-chevron-down {
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
     @keyframes shimmer {
         0% { background-position: -1000px 0; }
         100% { background-position: 1000px 0; }
@@ -480,7 +488,7 @@
     
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
     
-    // FAQ Accordion
+    // Accordion
     document.querySelectorAll('.faq-toggle').forEach(button => {
         button.addEventListener('click', () => {
             const faqItem = button.parentElement;
