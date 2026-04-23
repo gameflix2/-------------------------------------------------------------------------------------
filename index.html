@@ -1,216 +1,705 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gameflix - Área do Jogo</title>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        /* RESET TOTAL */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body {
-            background-color: #000; /* Fundo totalmente preto */
-            color: #fff;
-            font-family: 'Roboto', sans-serif;
-            overflow-x: hidden;
-            display: flex;
-            justify-content: center;
-            padding: 20px; /* Borda externa ao redor do site inteiro */
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gameflix - Jogos Originais com até 90% OFF</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --netflix-red: #E50914;
+        --netflix-red-hover: #3ef406;
+        --netflix-black: #141414;
+        --netflix-dark: #000000;
+        --netflix-gray: #181818;
+        --netflix-text: #e5e5e5;
+        --netflix-text-muted: #808080;
+    }
 
-        /* O CONTAINER MESTRE (A "BORDA" AO REDOR DE TUDO) */
-        .site-wrapper {
-            width: 100%;
-            max-width: 1200px; /* Largura máxima do site */
-            background-color: #0b0b0b; /* Um cinza quase preto pro fundo interno */
-            border-radius: 12px;
-            overflow: hidden; /* Garante que o vídeo não saia da borda */
-            border: 1px solid #1a1a1a; /* Borda sutil */
-            box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
-            position: relative;
-        }
+    * {
+        scroll-behavior: smooth;
+        -webkit-tap-highlight-color: transparent;
+    }
 
-        /* BOTÃO VOLTAR (FLUTUANTE) */
-        .btn-voltar {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 10px 25px;
-            text-decoration: none;
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.2rem;
-            border-radius: 4px;
-            z-index: 100;
-            transition: 0.3s;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-        .btn-voltar:hover { background: #e50914; border-color: #e50914; }
+    body {
+    font-family: 'Inter', sans-serif;
+    background: #000000;  /* troca o var(--netflix-black) por #000000 direto */
+    color: var(--netflix-text);
+    overflow-x: hidden;
+}
 
-        /* VÍDEO OCUPANDO O TOPO (TELA CHEIA DENTRO DO WRAPPER) */
-        .hero-video {
-            width: 100%;
-            padding-top: 56.25%; /* Mantém proporção 16:9 perfeita */
-            position: relative;
-            background: #000;
-        }
+    h1, h2, h3,.font-gamer {
+        font-family: 'Bebas Neue', sans-serif;
+        letter-spacing: 1px;
+        line-height: 1.1;
+    }
 
-        .hero-video iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
+   .gradient-text {
+        color: var(--netflix-red);
+        background: none;
+        -webkit-text-fill-color: var(--netflix-red);
+    }
 
-        /* CONTEÚDO ABAIXO DO VÍDEO (DENTRO DO WRAPPER) */
-        .container {
-            padding: 50px 4%;
-            width: 100%;
-        }
+   .gradient-border {
+        background: #000000;
+        border: 1px solid #2F2F2F;
+    }
 
-        h1 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 4rem;
-            color: #fff;
-            margin-bottom: 10px;
-            letter-spacing: 1px;
-        }
+   .gradient-border::before {
+        display: none;
+    }
 
-        .descricao {
-            font-size: 1.1rem;
-            color: #a3a3a3;
-            line-height: 1.6;
-            margin-bottom: 50px;
-            max-width: 800px;
-        }
+   .glass {
+      background: #000000;
+        border: 1px solid #2F2F2F;
+    }
 
-        /* CARROSSEL DE IMAGENS */
-        .secao-titulo {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.8rem;
-            border-left: 5px solid #e50914;
-            padding-left: 15px;
-            margin-bottom: 20px;
-        }
+   .btn-neon {
+        background: var(--netflix-red);
+        color: white;
+        font-weight: 600;
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+    }
 
-        .carrossel {
-            display: flex;
-            gap: 20px;
-            overflow-x: auto;
-            padding-bottom: 20px;
-            margin-bottom: 50px;
-        }
-        .carrossel img {
-            width: 350px;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 8px;
-            border: 2px solid #222;
-            transition: 0.3s;
-        }
-        .carrossel img:hover { border-color: #e50914; transform: scale(1.02); }
+   .btn-neon:hover,.btn-neon:active {
+        background: var(--netflix-red-hover);
+    }
 
-        /* CAIXA DE OFERTAS (IGUAL AO POPUP) */
-        .area-ofertas {
-            background: linear-gradient(135deg, #141414 0%, #000 100%);
-            border: 1px solid #222;
-            border-top: 3px solid #e50914;
-            border-radius: 12px;
-            padding: 40px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+   .btn-neon::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.2);
+        transform: translate(-50%, -50%);
+        transition: width 0.6s, height 0.6s;
+        z-index: -1;
+    }
+
+   .btn-neon:hover::before {
+        width: 300px;
+        height: 300px;
+    }
+
+   .glow-green,.glow-purple {
+        box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+    }
+
+   .netflix-header {
+        background: linear-gradient(180deg, rgba(0,0,0,.7) 10%, transparent);
+        transition: background 0.3s ease;
+    }
+
+   .netflix-header.scrolled {
+        background: var(--netflix-black);
+    }
+
+   .mobile-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 75%;
+        max-width: 320px;
+        height: 100vh;
+        background: var(--netflix-black);
+        transition: right 0.3s ease;
+        z-index: 9999;
+        padding: 80px 24px 24px;
+    }
+
+   .mobile-menu.active {
+        right: 0;
+        box-shadow: -10px 0 30px rgba(0,0,0,0.8);
+    }
+
+   .mobile-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.7);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        z-index: 9998;
+    }
+
+   .mobile-overlay.active {
+        opacity: 1;
+        pointer-events: all;
+    }
+
+   .netflix-badge {
+        background: var(--netflix-red);
+        color: white;
+        font-weight: 700;
+        font-size: 0.7rem;
+        padding: 3px 8px;
+        border-radius: 2px;
+        position: absolute;
+        top: 8px;
+        left: 8px;
+        z-index: 10;
+    }
+
+    @media (max-width: 640px) {
+       .netflix-badge {
+            font-size: 0.65rem;
+            padding: 2px 6px;
         }
+    }
 
-        .precos {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin: 30px 0;
-            flex-wrap: wrap;
+   .netflix-card {
+        background: #000000;
+        border-radius: 4px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        border: 1px solid #2F2F2F;
+    }
+
+    @media (hover: hover) {
+       .netflix-card:hover {
+            transform: scale(1.05);
+            z-index: 10;
+            box-shadow: 0 0 30px rgba(0,0,0,0.8);
         }
-
-        .card-preco {
-            background: #1a1a1a;
-            padding: 25px;
-            border-radius: 10px;
-            min-width: 220px;
-            border: 1px solid #333;
+       .netflix-card:hover img {
+            transform: scale(1.1);
         }
-        .card-preco span { color: #888; font-weight: bold; font-size: 0.9rem; }
-        .card-preco strong { font-size: 2.2rem; display: block; color: #fff; }
+    }
 
-        .card-preco.destaque { background: #e50914; border: none; box-shadow: 0 5px 15px rgba(229, 9, 20, 0.3); }
-        .card-preco.destaque span { color: #eee; }
-
-        /* WHATSAPP */
-        .btn-wpp {
-            display: inline-block;
-            background: #25d366;
-            color: white;
-            padding: 15px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: 0.3s;
+    @media (hover: none) {
+       .netflix-card:active {
+            transform: scale(0.98);
         }
-        .btn-wpp:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(37, 211, 102, 0.4); }
+    }
 
-        /* Esconder barra de rolagem */
-        .carrossel::-webkit-scrollbar { height: 6px; }
-        .carrossel::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
-    </style>
+   .netflix-card img {
+        transition: all 0.3s ease;
+        width: 100%;
+        height: auto;
+    }
+
+   .animate-float {
+        animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
+    }
+
+   .animate-pulse-glow {
+        animation: pulse-glow 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-glow {
+        0%, 100% { box-shadow: 0 0 20px rgba(229, 9, 20, 0.4); }
+        50% { box-shadow: 0 0 40px rgba(229, 9, 20, 0.8), 0 0 60px rgba(229, 9, 20, 0.4); }
+    }
+
+   .grid-bg {
+        background: none;
+    }
+
+   .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+   .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+   .faq-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+   .faq-item.active.faq-content {
+        max-height: 500px;
+    }
+
+   .faq-item.active.fa-chevron-down {
+        transform: rotate(180deg);
+    }
+
+    @keyframes shimmer {
+        0% { background-position: -1000px 0; }
+        100% { background-position: 1000px 0; }
+    }
+
+   .shimmer {
+        animation: shimmer 3s infinite;
+        background: linear-gradient(to right, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%);
+        background-size: 1000px 100%;
+    }
+</style>
 </head>
-<body>
+<body class="antialiased">
 
-    <div class="site-wrapper">
-        <a href="index.html" class="btn-voltar">← VOLTAR</a>
-
-        <section class="hero-video">
-            <iframe 
-                src="https://www.youtube.com/embed/9lrThxCoznw?autoplay=1&mute=0&rel=0" 
-                frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
-            </iframe>
-        </section>
-
-        <div class="container">
-            <h1>NOME DO JOGO</h1>
-            <p class="descricao">
-                Mergulhe nesta experiência épica com gráficos em ultra resolução. Aproveite o melhor desempenho 
-                e suporte total da nossa equipe. O jogo está pronto para ser lançado diretamente do seu PC através da nossa plataforma exclusiva.
-            </p>
-
-            <h3 class="secao-titulo">GALERIA DE FOTOS</h3>
-            <div class="carrossel">
-                <img src="https://via.placeholder.com/350x200/111/fff?text=Screenshot+1" alt="Foto">
-                <img src="https://via.placeholder.com/350x200/111/fff?text=Screenshot+2" alt="Foto">
-                <img src="https://via.placeholder.com/350x200/111/fff?text=Screenshot+3" alt="Foto">
-                <img src="https://via.placeholder.com/350x200/111/fff?text=Screenshot+4" alt="Foto">
+<!-- Sticky Header -->
+<header class="fixed top-0 w-full z-50 glass border-b border-white/5 netflix-header" id="mainHeader">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16 sm:h-20">
+            <div class="flex items-center gap-2">
+                <i class="fas fa-gamepad text-2xl sm:text-3xl gradient-text"></i>
+                <span class="text-xl sm:text-2xl font-gamer font-bold gradient-text">Gameflix</span>
             </div>
-
-            <div class="area-ofertas">
-                <h2 style="font-family: 'Bebas Neue'; font-size: 2.5rem; color: #e50914; margin-bottom: 10px;">🔥 OFERTAS EXCLUSIVAS GAMEFLIX</h2>
-                <p style="color: #aaa;">Assine e receba o acesso imediato via WhatsApp</p>
-                
-                <div class="precos">
-                    <div class="card-preco">
-                        <span>PLANO MENSAL</span>
-                        <strong>R$ 29,90</strong>
-                    </div>
-                    <div class="card-preco destaque">
-                        <span>PLANO ANUAL</span>
-                        <strong>R$ 199,90</strong>
-                    </div>
-                </div>
-
-                <a href="https://wa.me/5553981045078" class="btn-wpp">ASSINAR AGORA VIA WHATSAPP</a>
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="#ofertas" class="text-sm font-semibold hover:text-[#E50914] transition-colors">Ofertas</a>
+                <a href="#beneficios" class="text-sm font-semibold hover:text-[#E50914] transition-colors">Benefícios</a>
+                <a href="#faq" class="text-sm font-semibold hover:text-[#E50914] transition-colors">FAQ</a>
+            </nav>
+            <div class="flex items-center gap-3">
+                <a href="#oferta-destaque" class="btn-neon px-4 sm:px-6 py-2 sm:py-2.5 rounded-lg text-sm sm:text-base hidden sm:inline-flex">
+                    COMPRAR AGORA
+                </a>
+                <button id="menuToggle" class="md:hidden text-2xl text-white">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
         </div>
     </div>
+</header>
+
+<!-- Menu Mobile -->
+<div class="mobile-overlay" id="mobileOverlay"></div>
+<div class="mobile-menu" id="mobileMenu">
+    <button id="menuClose" class="absolute top-6 right-6 text-2xl">
+        <i class="fas fa-times"></i>
+    </button>
+    <nav class="flex flex-col gap-6">
+        <a href="#ofertas" class="text-lg font-semibold hover:text-[#E50914] transition-colors mobile-link">Ofertas</a>
+        <a href="#beneficios" class="text-lg font-semibold hover:text-[#E50914] transition-colors mobile-link">Benefícios</a>
+        <a href="#faq" class="text-lg font-semibold hover:text-[#E50914] transition-colors mobile-link">FAQ</a>
+        <a href="#oferta-destaque" class="btn-neon px-6 py-3 rounded-lg text-base mt-4 mobile-link">
+            COMPRAR AGORA
+        </a>
+    </nav>
+</div>
+
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center justify-center pt-20 grid-bg">
+
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+        <div class="inline-block mb-6 px-4 py-2 rounded-full glass border border-[#E50914]/30 fade-in">
+            <span class="text-sm font-bold text-[#E50914]"><i class="fas fa-bolt mr-2"></i>+5.000 GAMERS JÁ ECONOMIZARAM</span>
+        </div>
+
+        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight fade-in">
+            PARE DE PAGAR<br>
+            <span class="gradient-text">R$299 EM JOGOS NA STEAM</span>
+        </h1>
+
+        
+<!-- VSL Section -->
+<section class="py-16 sm:py-24 relative">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12 fade-in">
+                <div class="gradient-border rounded-2xl p-1 mb-8 fade-in">
+         <div class="bg-black rounded-2xl aspect-video flex items-center justify-center relative overflow-hidden group">
+    <div class="absolute inset-0 z-20 cursor-default"></div>
+
+    <iframe 
+        id="vsl-video"
+        class="w-full h-full relative z-10 pointer-events-none" 
+        src="https://www.youtube.com/embed/oPQSL7rjDz8?controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&disablekb=1" 
+        title="Gameflix Video" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+    </iframe>
+
+    <button id="play-button" class="absolute z-30 w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gradient-to-r from-[#E50914] to-[#f40612] flex items-center justify-center animate-pulse-glow hover:scale-110 transition-transform shadow-[0_0_50px_rgba(229,9,20,0.6)]">
+        <i class="fas fa-play text-3xl sm:text-4xl text-white ml-1"></i>
+    </button>
+</div>
+        </div>
+    </div>
+
+<!-- Featured Offer -->
+<section id="oferta-destaque" class="py-16 sm:py-24 relative">
+    <div class="absolute inset-0 bg-gradient-to-b from-[#E50914]/5 to-transparent"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="text-center mb-8 fade-in">
+            <div class="inline-block px-4 py-2 rounded-full bg-red-500/20 border border-red-500/50 mb-4">
+                <span class="text-sm font-bold text-red-400 animate-pulse"><i class="fas fa-fire mr-2"></i>OFERTA RELÂMPAGO</span>
+            </div>
+           
+        </div>
+
+        <div class="gradient-border rounded-3xl p-1 max-w-5xl mx-auto fade-in">
+            <div class="bg-gradient-to-br from-gray-900 to-black rounded-3xl overflow-hidden">
+                <div class="grid md:grid-cols-2 gap-8 p-6 sm:p-10">
+                    <div class="relative">
+                        <div class="absolute -top-4 -left-4 bg-red-500 text-white px-4 py-1 rounded-lg font-black text-sm z-10 rotate-[-3deg]">
+                            84% OFF
+                        </div>
+                        <img src="https://cdn.loaded.com/496x700/media/catalog/product/r/e/resident_evil_requiem_cdkeys_1.png" alt="Resident Evil Requiem" class="w-full h-full object-cover rounded-2xl">
+                   <div class="absolute bottom-4 left-4 glass px-3 py-1 rounded-lg">
+                            <span class="text-xs font-bold"><i class="fas fa-desktop mr-1"></i>PC STEAM</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col justify-center">
+                        <h3 class="font-gamer font-black text-2xl sm:text-3xl md:text-4xl mb-2">RESIDENT EVIL REQUIEM</h3>
+                        <p class="text-[#E50914] font-bold text-lg mb-6">DELUXE EDITION - PC STEAM</p>
+
+                        <div class="flex items-baseline gap-3 mb-6">
+                            <span class="text-gray-500 text-xl line-through">R$249,99</span>
+                            <span class="text-4xl sm:text-5xl font-black text-[#E50914]">R$39,90</span>
+                        </div>
+
+                        <div class="space-y-3 mb-6">
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-check-circle text-[#E50914] mt-1"></i>
+                                <span>Entrega imediata no seu e-mail</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-check-circle text-[#E50914] mt-1"></i>
+                                <span>Inclui todos os DLCs da Deluxe Edition</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-check-circle text-[#E50914] mt-1"></i>
+                                <span>Dublado Portugues Brasil</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-check-circle text-[#E50914] mt-1"></i>
+                                <span>Download Rapido</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-check-circle text-[#E50914] mt-1"></i>
+                                <span>Garantia de 7 dias ou dinheiro de volta</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-red-500/10 border border-red-500/30 rounded-xl p-4 mb-6">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm text-gray-400">Estoque acabando:</p>
+                                    <p class="font-black text-red-400"><i class="fas fa-exclamation-triangle mr-2"></i>TEMPO LIMITADO</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-xs text-gray-400">Economize</p>
+                                    <p class="font-black text-xl text-[#E50914]">R$210,09</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="btn-neon w-full py-4 rounded-xl text-lg font-black mb-3">
+                            <i class="fas fa-shopping-cart mr-2"></i>COMPRAR AGORA
+                        </button>
+
+                        <div class="flex items-center justify-center gap-4 text-xs text-gray-400">
+                            <span><i class="fas fa-lock mr-1"></i>Pagamento seguro</span>
+                            <span><i class="fas fa-undo mr-1"></i>7 dias garantia</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<!-- Comparison Table -->
+<section class="py-16 sm:py-24">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12 fade-in">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-black mb-4">
+                COMPARAÇÃO <span class="gradient-text">SEM MENTIRA</span>
+            </h2>
+            <p class="text-gray-400 text-lg">Veja por que a Gameflix é a escolha inteligente</p>
+        </div>
+        
+        <div class="gradient-border rounded-2xl overflow-hidden fade-in">
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead>
+                        <tr class="bg-gradient-to-r from-gray-900 to-black">
+                            <th class="p-4 sm:p-6 text-left font-gamer font-bold text-lg">CARACTERÍSTICA</th>
+                            <th class="p-4 sm:p-6 text-center font-gamer font-bold text-lg text-gray-400">
+                                <i class="fab fa-steam mr-2"></i>Na Steam / PS Store
+                            </th>
+                            <th class="p-4 sm:p-6 text-center font-gamer font-bold text-lg gradient-text">
+                                <i class="fas fa-gamepad mr-2"></i>Na Gameflix
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-sm sm:text-base">
+                        <tr class="border-t border-white/5">
+                            <td class="p-4 sm:p-6 font-semibold">Preço Médio Lançamento</td>
+                            <td class="p-4 sm:p-6 text-center text-red-400">R$249 - R$349</td>
+                            <td class="p-4 sm:p-6 text-center text-[#00ff88] font-bold">R$39 - R$59 <i class="fas fa-check ml-2"></i></td>
+                        </tr>
+                        <tr class="border-t border-white/5 bg-white/2">
+                            <td class="p-4 sm:p-6 font-semibold">Originalidade</td>
+                            <td class="p-4 sm:p-6 text-center">100% Original</td>
+                            <td class="p-4 sm:p-6 text-center text-[#00ff88] font-bold">100% Original <i class="fas fa-check ml-2"></i></td>
+                        </tr>
+                        <tr class="border-t border-white/5">
+                            <td class="p-4 sm:p-6 font-semibold">Risco de Ban</td>
+                            <td class="p-4 sm:p-6 text-center">Zero</td>
+                            <td class="p-4 sm:p-6 text-center text-[#00ff88] font-bold">Zero <i class="fas fa-check ml-2"></i></td>
+                        </tr>
+                        <tr class="border-t border-white/5 bg-white/2">
+                            <td class="p-4 sm:p-6 font-semibold">Entrega</td>
+                            <td class="p-4 sm:p-6 text-center">Instantânea</td>
+                            <td class="p-4 sm:p-6 text-center text-[#00ff88] font-bold">Instantânea <i class="fas fa-check ml-2"></i></td>
+                        </tr>
+                        <tr class="border-t border-white/5">
+                            <td class="p-4 sm:p-6 font-semibold">Suporte Humano</td>
+                            <td class="p-4 sm:p-6 text-center text-gray-400">Bot / Ticket Lento</td>
+                            <td class="p-4 sm:p-6 text-center text-[#00ff88] font-bold">WhatsApp Direto <i class="fas fa-check ml-2"></i></td>
+                        </tr>
+                        <tr class="border-t border-white/5 bg-white/2">
+                            <td class="p-4 sm:p-6 font-semibold">Economia no Bolso</td>
+                            <td class="p-4 sm:p-6 text-center text-red-400">R$0</td>
+                            <td class="p-4 sm:p-6 text-center text-[#00ff88] font-bold">Até R$300 por jogo <i class="fas fa-check ml-2"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section id="faq" class="py-16 sm:py-24">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12 fade-in">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-black mb-4">
+                DÚVIDAS <span class="gradient-text">FREQUENTES</span>
+            </h2>
+            <p class="text-gray-400 text-lg">Tiramos todas suas dúvidas antes da compra</p>
+        </div>
+        
+        <div class="space-y-4">
+            <div class="faq-item gradient-border rounded-2xl overflow-hidden fade-in">
+                <button class="faq-toggle w-full p-6 flex items-center justify-between text-left hover:bg-white/5 transition-colors">
+                    <span class="font-bold text-lg pr-4"><i class="fas fa-shield-alt text-[#00ff88] mr-3"></i>É seguro? Não vou tomar ban na Steam?</span>
+                    <i class="fas fa-chevron-down text-[#00ff88] transition-transform"></i>
+                </button>
+                <div class="faq-content px-6">
+                    <div class="pb-6 text-gray-300">
+                        <p>Totalmente seguro! Trabalhamos apenas com chaves RETAIL originais compradas direto de distribuidores oficiais. São as mesmas chaves vendidas nas lojas físicas. A Steam não consegue diferenciar uma chave nossa de uma comprada diretamente lá. Você ativa na SUA conta, o jogo fica vinculado pra sempre. Zero risco de ban. Já são +5.000 entregas sem nenhum caso de banimento.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item gradient-border rounded-2xl overflow-hidden fade-in">
+                <button class="faq-toggle w-full p-6 flex items-center justify-between text-left hover:bg-white/5 transition-colors">
+                    <span class="font-bold text-lg pr-4"><i class="fas fa-clock text-[#00ff88] mr-3"></i>Quanto tempo demora pra receber a chave?</span>
+                    <i class="fas fa-chevron-down text-[#00ff88] transition-transform"></i>
+                </button>
+                <div class="faq-content px-6">
+                    <div class="pb-6 text-gray-300">
+                        <p>Garantimos entrega em até 24 horas após confirmação do pagamento. Na prática, 95% dos pedidos são entregues em menos de 1 hora. Pix e cartão aprovado = chave no seu e-mail rapidão. Boleto demora o tempo de compensação bancária (até 3 dias úteis), mas assim que compensar, você recebe na hora.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item gradient-border rounded-2xl overflow-hidden fade-in">
+                <button class="faq-toggle w-full p-6 flex items-center justify-between text-left hover:bg-white/5 transition-colors">
+                    <span class="font-bold text-lg pr-4"><i class="fas fa-globe text-[#00ff88] mr-3"></i>Funciona no Brasil? Tem bloqueio de região?</span>
+                    <i class="fas fa-chevron-down text-[#00ff88] transition-transform"></i>
+                </button>
+                <div class="faq-content px-6">
+                    <div class="pb-6 text-gray-300">
+                        <p>Sim, funciona 100% no Brasil! Todas nossas chaves são GLOBAL ou LATAM, sem bloqueio regional. Você ativa direto na sua conta Steam brasileira sem VPN ou gambiarra. Na descrição de cada jogo deixamos claro a região da chave. Se por algum motivo raro sua conta não aceitar, trocamos a chave ou devolvemos seu dinheiro na hora.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item gradient-border rounded-2xl overflow-hidden fade-in">
+                <button class="faq-toggle w-full p-6 flex items-center justify-between text-left hover:bg-white/5 transition-colors">
+                    <span class="font-bold text-lg pr-4"><i class="fas fa-exclamation-triangle text-[#00ff88] mr-3"></i>E se der problema na ativação?</span>
+                    <i class="fas fa-chevron-down text-[#00ff88] transition-transform"></i>
+                </button>
+                <div class="faq-content px-6">
+                    <div class="pb-6 text-gray-300">
+                        <p>Relaxa! Só chamar no WhatsApp (11) 94530-6956 que resolvemos na hora. Temos suporte SEG-SAB das 10h às 18h. Se a chave não ativar, enviamos outra imediatamente. Se não conseguirmos resolver, devolvemos 100% do valor em até 7 dias. Você não fica no prejuízo de jeito nenhum. Nossa taxa de problema é menor que 0,5% e todos resolvidos.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item gradient-border rounded-2xl overflow-hidden fade-in">
+                <button class="faq-toggle w-full p-6 flex items-center justify-between text-left hover:bg-white/5 transition-colors">
+                    <span class="font-bold text-lg pr-4"><i class="fas fa-dollar-sign text-[#00ff88] mr-3"></i>Por que é tão barato? Qual o segredo?</span>
+                    <i class="fas fa-chevron-down text-[#00ff88] transition-transform"></i>
+                </button>
+                <div class="faq-content px-6">
+                    <div class="pb-6 text-gray-300">
+                        <p>Sem segredo, só matemática: compramos chaves em grande quantidade direto de distribuidores globais, em dólar, aproveitando promoções regionais. Aí repassamos com margem mínima, sem os impostos absurdos e a ganância de 300% das lojinhas brasileiras. Você paga o preço justo do jogo, não o preço inflacionado. É o mesmo jogo original, só que sem ser roubado.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Final CTA Section -->
+<section id="ofertas" class="py-16 sm:py-24 relative">
+    <div class="absolute inset-0 bg-gradient-to-t from-[#00ff88]/10 via-[#b537f2]/5 to-transparent"></div>
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
+        <div class="fade-in">
+            <h2 class="text-4xl sm:text-5xl md:text-6xl font-black mb-6 leading-tight">
+                CHEGA DE PAGAR CARO<br>
+                <span class="gradient-text">PRA JOGAR</span>
+            </h2>
+            <p class="text-xl sm:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                Mais de 5.000 gamers já economizaram centenas de reais. Próximo pode ser você.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+                <button class="btn-neon w-full sm:w-auto px-10 py-5 rounded-xl bg-gradient-to-r from-[#00ff88] to-[#00cc6a] text-black font-black text-xl glow-green">
+                    <i class="fas fa-fire mr-2"></i>VER TODAS AS OFERTAS DO DIA
+                </button>
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-6 sm:gap-8 text-sm">
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-check-circle text-[#00ff88]"></i>
+                    <span>Jogos 100% Originais</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-check-circle text-[#00ff88]"></i>
+                    <span>Entrega imediata</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-check-circle text-[#00ff88]"></i>
+                    <span>Garantia 7 Dias</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-check-circle text-[#00ff88]"></i>
+                    <span>Suporte WhatsApp</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="border-t border-white/10 py-12 glass">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-8">
+            <div>
+                <div class="flex items-center gap-2 mb-4">
+                    <i class="fas fa-gamepad text-2xl gradient-text"></i>
+                    <span class="text-xl font-gamer font-bold gradient-text"></span>
+                </div>
+               
+                <h4 class="font-gamer font-bold mb-4 text-[#00ff88]">Atendimento</h4>
+                <div class="space-y-2 text-sm text-gray-400">
+                    <a href="https://wa.me/5511945306956" class="flex items-center gap-2 hover:text-[#00ff88] transition-colors">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>(11) 94530-6956</span>
+                    </a>
+                    <a href="mailto:contato@gameflix.shop" class="flex items-center gap-2 hover:text-[#00ff88] transition-colors">
+                        <i class="fas fa-envelope"></i>
+                        <span>contato@gameflix.shop</span>
+                    </a>
+                    <p class="flex items-center gap-2">
+                        <i class="fas fa-clock"></i>
+                        <span>SEG-SAB 10-18HS</span>
+                    </p>
+                </div>
+            </div>
+            
+            
+            <div>
+                <h4 class="font-gamer font-bold mb-4 text-[#00ff88]">Pagamento Seguro</h4>
+                <div class="flex flex-wrap gap-3 text-2xl text-gray-400">
+                    <i class="fab fa-pix"></i>
+                    <i class="fas fa-credit-card"></i>
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                </div>
+                <p class="text-xs text-gray-500 mt-4">Site protegido com SSL</p>
+            </div>
+        </div>
+        
+        <div class="border-t border-white/10 pt-8 text-center text-sm text-gray-500">
+            <p>&copy; 2024 Gameflix. Todos os direitos reservados. CNPJ: XX.XXX/0001-XX</p>
+            <p class="mt-2 text-xs">Gameflix não é afiliada à Steam, PlayStation ou Xbox. Todas as marcas são propriedade de seus respectivos donos.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- WhatsApp Float Button -->
+<a href="https://wa.me/5511945306956" class="fixed bottom-6 right-6 w-14 h-14 bg-gradient-to-br from-[#25D366] to-[#128C7E] rounded-full flex items-center justify-center text-white text-3xl shadow-lg hover:scale-110 transition-transform z-50 animate-pulse-glow">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+    // Fade in on scroll animation
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+    
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    
+    // FAQ Accordion
+    document.querySelectorAll('.faq-toggle').forEach(button => {
+        button.addEventListener('click', () => {
+            const faqItem = button.parentElement;
+            const wasActive = faqItem.classList.contains('active');
+            
+            // Close all FAQs
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Open clicked FAQ if it wasn't active
+            if (!wasActive) {
+                faqItem.classList.add('active');
+            }
+        });
+    });
+    
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                const headerOffset = 80;
+                const elementPosition = target.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+</script>
 
 </body>
 </html>
