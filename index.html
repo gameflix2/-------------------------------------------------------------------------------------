@@ -257,6 +257,23 @@
         background: linear-gradient(to right, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%);
         background-size: 1000px 100%;
     }
+    /* Reduz a base de cálculo do tamanho de tudo no site */
+html {
+    font-size: 12px; /* Diminuir de 16px (padrão) para 14px remove o aspecto de "zoom" */
+}
+
+/* Reduz o espaçamento exagerado entre as seções */
+section {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+}
+
+/* Ajusta a imagem para não ficar gigantesca no PC */
+#oferta-destaque img {
+    max-height: 450px;
+    width: auto;
+    margin: 0 auto;
+}
 </style>
 </head>
 <body class="antialiased">
